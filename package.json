@@ -1,0 +1,20 @@
+{
+  "name": "aws-lambda-mailing-service",
+  "version": "1.0.0",
+  "main": "dist/handler.js",
+  "scripts": {
+    "build": "tsc",
+    "pack": "npm run build && zip -r lambda.zip dist node_modules"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1629.0",
+    "resend": "^3.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.138",
+    "@types/node": "^20.12.12",
+    "serverless-offline": "^13.6.0"
+  }
+}
