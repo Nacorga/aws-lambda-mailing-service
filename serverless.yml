@@ -1,4 +1,4 @@
-service: aws-lambda-mailing-service
+service: mailing-service
 
 frameworkVersion: '^4.0.0'
 
@@ -17,6 +17,12 @@ functions:
       - http:
           path: contacts
           method: post
+          cors:
+            origin: 'https://tripilog.com'
+            headers:
+              - Content-Type
+              - Authorization
+            allowCredentials: false
 
 package:
   individually: true

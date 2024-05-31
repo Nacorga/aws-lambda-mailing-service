@@ -2,9 +2,9 @@ import { APIGatewayProxyHandler } from 'aws-lambda';
 import { addContact } from './mailingService';
 
 export const handler: APIGatewayProxyHandler = async (event) => {
-  const { name, email } = JSON.parse(event.body || '{}');
+  const { email }: { email: string } = JSON.parse(event.body || '{}');
 
-  if (!name || !email) {
+  if (!email) {
     return {
       statusCode: 400,
       body: JSON.stringify({ message: 'Name and email are required' }),
@@ -12,7 +12,7 @@ export const handler: APIGatewayProxyHandler = async (event) => {
   }
 
   try {
-    await addContact({ name, email });
+    await addContact(email);
 
     return {
       statusCode: 200,
