@@ -18,7 +18,9 @@ functions:
           path: contacts
           method: post
           cors:
-            origin: 'https://tripilog.com'
+            origins:
+              - 'https://tripilog.com'
+              - 'https://www.tripilog.com'
             headers:
               - Content-Type
               - Authorization
